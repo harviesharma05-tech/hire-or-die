@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    <title>HIRE OR DIE V20</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00e5ff">
+    <link rel="icon" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet"
+          href="style.css">
+</head>
+
+<body>
+
+    <!-- TOP HUD -->
+    <div id="topHUD">
+        <div class="hudBox">❤️ HP <span id="hp">100</span></div>
+        <div class="hudBox">💙 Mana <span id="mana">100</span></div>
+        <div class="hudBox">⭐ Level <span id="level">1</span></div>
+        <div class="hudBox">⚡ XP <span id="xp">0</span></div>
+        <div class="hudBox">🪙 Coins <span id="coins">0</span></div>
+        <div class="hudBox">💎 Gems <span id="gems">0</span></div>
+    </div>
+
+    <!-- PANEL TOGGLE BUTTONS -->
+    <div id="panelToggles">
+        <button onclick="togglePanel('infoPanel')">📜 Info</button>
+        <button onclick="togglePanel('inventoryPanel')">🎒 Inventory</button>
+        <button onclick="togglePanel('skillPanel')">🌳 Skills</button>
+        <button onclick="togglePanel('shopPanel')">🏪 Shop</button>
+        <button onclick="togglePanel('achievementPanel')">🏆 Achievements</button>
+        <button onclick="togglePanel('miniMapPanel')">🗺 Map</button>
+    </div>
+
+    <!-- LEFT PANEL -->
+    <div id="infoPanel" class="hidden">
+        <h2>📜 Info</h2>
+        <p>👤 Name</p>
+        <p>⚔ Character</p>
+        <p>🗡 Weapon</p>
+        <p>📖 Chapter</p>
+        <p>🏅 Rank</p>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div id="inventoryPanel" class="hidden">
+        <h2>🎒 Inventory</h2>
+        <div id="inventory"></div>
+    </div>
+
+    <!-- GAME AREA -->
+    <canvas id="gameCanvas" width="1280" height="720"></canvas>
+
+    <!-- MINIMAP -->
+    <div id="miniMapPanel" class="hidden">
+        <h2>🗺 Minimap</h2>
+        <img id="miniMap" src="city-map.png">
+    </div>
+
+    <!-- CURRENT ZOMBIE -->
+    <div id="currentZombie">
+        <h2>🧟 Current Zombie</h2>
+        <p id="zombieName">HR Zombie</p>
+        <p id="zombieHP">HP:100</p>
+    </div>
+
+    <!-- CURRENT BOSS -->
+    <div id="currentBoss" style="display:none;">
+        <h2>👹 Current Boss</h2>
+        <p id="bossName">Recruiter Boss</p>
+        <p id="bossHP">HP:300</p>
+    </div>
+
+    <!-- STORY PANEL -->
+    <div id="storyPanel">
+        <h2 id="storyTitle">Chapter 1</h2>
+        <p id="storyText">Welcome to HIRE OR DIE.</p>
+    </div>
+
+    <!-- QUESTION PANEL -->
+    <div id="questionPanel">
+        <h2 id="questionTitle">Coding Question</h2>
+        <p id="questionText">Which keyword declares a variable?</p>
+        <button id="answer1"></button>
+        <button id="answer2"></button>
+        <button id="answer3"></button>
+        <button id="answer4"></button>
+    </div>
+
+    <!-- SKILL TREE -->
+    <div id="skillPanel" class="hidden">
+        <h2>🌳 Skills</h2>
+        <div id="skills"></div>
+    </div>
+
+    <!-- SHOP -->
+    <div id="shopPanel" class="hidden">
+        <h2>🏪 Shop</h2>
+        <div id="shop"></div>
+    </div>
+
+    <!-- ACHIEVEMENTS -->
+    <div id="achievementPanel" class="hidden">
+        <h2>🏆 Achievements</h2>
+        <div id="achievements"></div>
+    </div>
+
+    <!-- MESSAGE -->
+    <div id="message">HIRE OR DIE V20</div>
+
+    <!-- MAIN MENU OVERLAY -->
+    <div id="menuOverlay" class="overlay">
+        <div class="overlayBox" style="background-image:url('main-menu.jpeg');">
+            <div class="overlayInner" id="nameStep">
+                <h1>🧟 HIRE OR DIE V20</h1>
+                <p>Learn Coding • Defeat Zombies • Get Hired</p>
+                <input id="playerNameInput" type="text" placeholder="Enter your name" maxlength="16">
+                <button id="btnNextToCharacter">▶ New Game</button>
+                <button id="btnContinue">💾 Continue</button>
+            </div>
+            <div class="overlayInner hidden" id="characterStep">
+                <h1>Choose Your Character</h1>
+                <div id="characterGrid"></div>
+                <button id="btnToDifficulty">Next: Choose Difficulty ▶</button>
+            </div>
+            <div class="overlayInner hidden" id="difficultyStep">
+                <h1>Choose Difficulty</h1>
+                <div id="difficultyGrid"></div>
+                <button id="btnToMapSelectFromDiff">Next: Choose Map ▶</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAP SELECT OVERLAY (used at game start and via pause menu) -->
+    <div id="mapSelectOverlay" class="overlay hidden">
+        <div class="overlayBox">
+            <div class="overlayInner">
+                <h1>Choose Your Map</h1>
+                <div id="mapGrid"></div>
+                <button id="btnCloseMapSelect">◀ Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GAME OVER OVERLAY -->
+    <div id="gameoverOverlay" class="overlay hidden">
+        <div class="overlayBox">
+            <div class="overlayInner">
+                <h1>☠ GAME OVER</h1>
+                <p>The zombies got you this time.</p>
+                <button id="btnRetry">🔁 Retry Level</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- VICTORY OVERLAY -->
+    <div id="victoryOverlay" class="overlay hidden">
+        <div class="overlayBox" style="background-image:url('victory-screen.jpeg');">
+            <div class="overlayInner">
+                <h1>🏆 VICTORY!</h1>
+                <p>You defeated the God Recruiter and got hired.</p>
+                <button id="btnPlayAgain">🔄 Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOUCH CONTROLS (mobile) -->
+    <div id="touchControls">
+        <div id="dpad">
+            <button class="dpadBtn" id="dpadUp">▲</button>
+            <button class="dpadBtn" id="dpadLeft">◀</button>
+            <button class="dpadBtn" id="dpadRight">▶</button>
+            <button class="dpadBtn" id="dpadDown">▼</button>
+        </div>
+        <button id="attackBtn">⚔</button>
+    </div>
+
+    <!-- TOP-RIGHT UTILITY BUTTONS -->
+    <div id="utilButtons">
+        <button id="pauseBtn">⏸</button>
+        <button id="muteBtn">🔊</button>
+    </div>
+
+    <!-- PAUSE OVERLAY -->
+    <div id="pauseOverlay" class="overlay hidden">
+        <div class="overlayBox">
+            <div class="overlayInner">
+                <h1>⏸ PAUSED</h1>
+                <button id="btnResume">▶ Resume</button>
+                <button id="btnChangeMap">🗺 Change Map</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HIT FLASH -->
+    <div id="hitFlash"></div>
+
+    <!-- JAVASCRIPT FILES (load order matters) -->
+    <script src="questions.js"></script>
+    <script src="content.js"></script>
+    <script src="audioLite.js"></script>
+    <script src="engine.js"></script>
+    <script src="questionSystem.js"></script>
+    <script src="level.js"></script>
+    <script src="bossFight.js"></script>
+    <script src="ui.js"></script>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("service-worker.js").catch(() => {
+                    // offline caching is a nice-to-have; ignore failures (e.g. file:// testing)
+                });
+            });
+        }
+    </script>
+
+</body>
+
+</html>
