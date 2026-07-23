@@ -1,0 +1,1061 @@
+/* =========================
+HIRE OR DIE V20
+STYLE.CSS
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:#0b1020;
+
+    color:white;
+
+    font-family:Arial, sans-serif;
+
+    overflow:hidden;
+
+}
+
+
+/* =========================
+GAME CANVAS
+========================= */
+
+#gameCanvas{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border:4px solid cyan;
+
+    background:black;
+
+    max-width:100vw;
+
+    max-height:100vh;
+
+}
+
+
+/* =========================
+TOP HUD
+========================= */
+
+#topHUD{
+
+    position:absolute;
+
+    top:10px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:15px;
+
+    z-index:100;
+
+}
+
+
+.hudBox{
+
+    background:#111827;
+
+    border:2px solid cyan;
+
+    padding:10px;
+
+    min-width:110px;
+
+    text-align:center;
+
+    border-radius:10px;
+
+}
+
+
+#panelToggles{
+
+    position:absolute;
+
+    top:60px;
+
+    left:10px;
+
+    right:10px;
+
+    display:flex;
+
+    gap:10px;
+
+    z-index:50;
+
+}
+
+#panelToggles button{
+
+    background:#111827;
+
+    color:white;
+
+    border:2px solid cyan;
+
+    border-radius:10px;
+
+    padding:8px 14px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+#panelToggles button:hover{
+
+    background:cyan;
+
+    color:black;
+
+}
+
+
+/* =========================
+LEFT PANEL
+========================= */
+
+#infoPanel{
+
+    position:absolute;
+
+    left:10px;
+
+    top:100px;
+
+    width:220px;
+
+    background:#111827;
+
+    border:2px solid cyan;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+/* =========================
+RIGHT PANEL
+========================= */
+
+#inventoryPanel{
+
+    position:absolute;
+
+    right:10px;
+
+    top:100px;
+
+    width:220px;
+
+    background:#111827;
+
+    border:2px solid cyan;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+/* =========================
+MINIMAP
+========================= */
+
+#miniMapPanel{
+
+    position:absolute;
+
+    left:10px;
+
+    bottom:20px;
+
+    background:#111827;
+
+    border:2px solid cyan;
+
+    padding:15px;
+
+    border-radius:15px;
+
+}
+
+
+#miniMap{
+
+    width:180px;
+
+}
+
+
+/* =========================
+CURRENT ZOMBIE
+========================= */
+
+#currentZombie{
+
+    position:absolute;
+
+    right:10px;
+
+    top:350px;
+
+    width:220px;
+
+    background:#111827;
+
+    border:2px solid lime;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+/* =========================
+CURRENT BOSS
+========================= */
+
+#currentBoss{
+
+    position:absolute;
+
+    right:10px;
+
+    top:520px;
+
+    width:220px;
+
+    background:#111827;
+
+    border:2px solid red;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+/* =========================
+STORY PANEL
+========================= */
+
+#storyPanel{
+
+    position:absolute;
+
+    left:250px;
+
+    bottom:20px;
+
+    width:500px;
+
+    background:#111827;
+
+    border:2px solid gold;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+/* =========================
+QUESTION PANEL
+========================= */
+
+#questionPanel{
+
+    position:absolute;
+
+    right:250px;
+
+    bottom:20px;
+
+    width:500px;
+
+    background:#111827;
+
+    border:2px solid orange;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+#questionPanel button{
+
+    width:100%;
+
+    margin-top:10px;
+
+    padding:12px;
+
+    background:#1f2937;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+
+#questionPanel button:hover{
+
+    background:cyan;
+
+    color:black;
+
+}
+
+
+/* =========================
+SKILL PANEL
+========================= */
+
+#skillPanel{
+
+    position:absolute;
+
+    top:100px;
+
+    left:250px;
+
+    width:250px;
+
+    background:#111827;
+
+    border:2px solid purple;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+/* =========================
+SHOP PANEL
+========================= */
+
+#shopPanel{
+
+    position:absolute;
+
+    top:100px;
+
+    left:520px;
+
+    width:250px;
+
+    background:#111827;
+
+    border:2px solid gold;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+/* =========================
+ACHIEVEMENTS
+========================= */
+
+#achievementPanel{
+
+    position:absolute;
+
+    top:100px;
+
+    left:790px;
+
+    width:250px;
+
+    background:#111827;
+
+    border:2px solid lime;
+
+    padding:20px;
+
+    border-radius:15px;
+
+}
+
+
+/* =========================
+MESSAGE
+========================= */
+
+#message{
+
+    position:absolute;
+
+    top:70px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:black;
+
+    border:2px solid white;
+
+    padding:10px 20px;
+
+    border-radius:15px;
+
+}
+
+
+/* =========================
+TOUCH CONTROLS
+========================= */
+
+#touchControls{
+
+    position:fixed;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    padding:20px;
+
+    z-index:200;
+
+    pointer-events:none;
+
+}
+
+#dpad{
+
+    display:grid;
+
+    grid-template-columns:56px 56px 56px;
+
+    grid-template-rows:56px 56px;
+
+    gap:4px;
+
+    pointer-events:auto;
+
+}
+
+#dpadUp{ grid-column:2; grid-row:1; }
+
+#dpadLeft{ grid-column:1; grid-row:2; }
+
+#dpadRight{ grid-column:3; grid-row:2; }
+
+#dpadDown{ grid-column:2; grid-row:2; }
+
+.dpadBtn{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:14px;
+
+    background:rgba(17,24,39,0.75);
+
+    border:2px solid cyan;
+
+    color:cyan;
+
+    font-size:20px;
+
+    -webkit-user-select:none;
+
+    user-select:none;
+
+    touch-action:none;
+
+}
+
+#attackBtn{
+
+    width:80px;
+
+    height:80px;
+
+    border-radius:50%;
+
+    background:rgba(139,0,0,0.75);
+
+    border:2px solid red;
+
+    color:white;
+
+    font-size:26px;
+
+    pointer-events:auto;
+
+    -webkit-user-select:none;
+
+    user-select:none;
+
+    touch-action:none;
+
+}
+
+@media (hover:hover) and (pointer:fine){
+
+    #touchControls{
+
+        display:none;
+
+    }
+
+}
+
+
+/* =========================
+UTILITY BUTTONS (pause / mute)
+========================= */
+
+#utilButtons{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    display:flex;
+
+    gap:8px;
+
+    z-index:150;
+
+}
+
+#utilButtons button{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:10px;
+
+    background:#111827;
+
+    border:2px solid cyan;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================
+HIT FLASH
+========================= */
+
+#hitFlash{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(255,0,0,0.35);
+
+    pointer-events:none;
+
+    opacity:0;
+
+    z-index:900;
+
+    transition:opacity 0.15s ease-out;
+
+}
+
+#hitFlash.show{
+
+    opacity:1;
+
+    transition:none;
+
+}
+
+
+/* =========================
+QUESTION PANEL ACTIVE STATE
+========================= */
+
+#questionPanel.active{
+
+    border-color:cyan;
+
+    box-shadow:0 0 25px cyan;
+
+}
+
+
+/* =========================
+OVERLAYS (menu / gameover / victory)
+========================= */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(0,0,0,0.6);
+
+}
+
+.overlay.hidden{
+
+    display:none;
+
+}
+
+.overlayBox{
+
+    width:520px;
+
+    max-width:90vw;
+
+    background-size:cover;
+
+    background-position:center;
+
+    border:3px solid cyan;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.overlayInner{
+
+    background:rgba(5,7,15,0.75);
+
+    padding:40px 30px;
+
+    text-align:center;
+
+}
+
+.overlayInner h1{
+
+    margin-bottom:10px;
+
+    text-shadow:0 0 10px cyan;
+
+}
+
+.overlayInner p{
+
+    margin-bottom:20px;
+
+    opacity:0.85;
+
+}
+
+.overlayInner input{
+
+    display:block;
+
+    width:100%;
+
+    padding:12px;
+
+    margin-bottom:15px;
+
+    border-radius:10px;
+
+    border:2px solid cyan;
+
+    background:#111827;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+.overlayInner button{
+
+    display:block;
+
+    width:100%;
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+    background:#1f2937;
+
+    color:white;
+
+    border:2px solid cyan;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+.overlayInner button:hover{
+
+    background:cyan;
+
+    color:black;
+
+}
+
+#shop button, #skills button{
+
+    padding:6px 10px;
+
+    margin-top:4px;
+
+    background:#1f2937;
+
+    color:white;
+
+    border:1px solid cyan;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+}
+
+#shop button:disabled, #skills button:disabled{
+
+    opacity:0.4;
+
+    cursor:not-allowed;
+
+}
+
+
+#mapGrid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
+
+    margin-bottom:20px;
+
+    max-height:50vh;
+
+    overflow-y:auto;
+
+}
+
+.mapCard{
+
+    border:2px solid cyan;
+
+    border-radius:12px;
+
+    padding:12px;
+
+    cursor:pointer;
+
+    text-align:center;
+
+    background:rgba(0,50,100,0.4);
+
+    transition:all 0.2s;
+
+}
+
+.mapCard:hover{
+
+    border-color:lime;
+
+    background:rgba(0,100,150,0.6);
+
+    transform:scale(1.05);
+
+}
+
+.mapCard.locked{
+
+    opacity:0.5;
+
+    cursor:not-allowed;
+
+    border-color:#666;
+
+}
+
+.mapCard img{
+
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    margin-bottom:8px;
+
+}
+
+.mapCard h3{
+
+    margin:0 0 4px 0;
+
+    font-size:14px;
+
+}
+
+.mapCard .locked-label{
+
+    font-size:12px;
+
+    opacity:0.7;
+
+}
+
+
+#difficultyGrid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr 1fr;
+
+    gap:14px;
+
+    margin-bottom:20px;
+
+}
+
+.diffCard{
+
+    border:2px solid cyan;
+
+    border-radius:12px;
+
+    padding:16px;
+
+    cursor:pointer;
+
+    text-align:center;
+
+    background:rgba(0,50,100,0.4);
+
+    transition:all 0.2s;
+
+}
+
+.diffCard:hover{
+
+    border-color:lime;
+
+    background:rgba(0,100,150,0.6);
+
+    transform:scale(1.05);
+
+}
+
+.diffCard.selected{
+
+    border-color:gold;
+
+    background:rgba(100,80,0,0.5);
+
+}
+
+.diffCard h3{
+
+    margin:0 0 8px 0;
+
+    font-size:18px;
+
+}
+
+.diffCard .stats{
+
+    font-size:12px;
+
+    opacity:0.8;
+
+    line-height:1.6;
+
+}
+
+
+#characterGrid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
+
+    margin-bottom:20px;
+
+}
+
+.charCard{
+
+    border:2px solid cyan;
+
+    border-radius:12px;
+
+    padding:8px;
+
+    cursor:pointer;
+
+    text-align:center;
+
+    background:rgba(0,0,0,0.4);
+
+}
+
+.charCard img{
+
+    width:100%;
+
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    margin-bottom:6px;
+
+}
+
+.charCard.selected{
+
+    border-color:lime;
+
+    box-shadow:0 0 15px lime;
+
+}
+
+.hidden{
+
+    display:none !important;
+
+}
+
+
+.hudBox span.pop{
+
+    animation:popScale 0.3s ease;
+
+}
+
+@keyframes popScale{
+
+    0%{ transform:scale(1.5); color:cyan; }
+
+    100%{ transform:scale(1); color:white; }
+
+}
+
+
+/* =========================
+SHAKE EFFECT
+========================= */
+
+.shake{
+
+    animation:shake .25s;
+
+}
+
+
+@keyframes shake{
+
+0%{
+
+transform:translate(0px);
+
+}
+
+25%{
+
+transform:translate(5px);
+
+}
+
+50%{
+
+transform:translate(-5px);
+
+}
+
+75%{
+
+transform:translate(5px);
+
+}
+
+100%{
+
+transform:translate(0px);
+
+}
+
+}
