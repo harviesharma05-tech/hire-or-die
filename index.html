@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIRE OR DIE V30</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game">
+        <canvas id="gameCanvas" width="1280" height="720"></canvas>
+        <div id="hud"></div>
+        <div id="menus"></div>
+    </div>
+    <script src="src/data/questions.js"></script>
+    <script src="src/data/content.js"></script>
+    <script src="src/core/engine.js"></script>
+    <script src="src/game/level.js"></script>
+    <script src="src/ui/menu.js"></script>
+    <script>window.addEventListener("load", () => initEngine());</script>
+</body>
+</html>
